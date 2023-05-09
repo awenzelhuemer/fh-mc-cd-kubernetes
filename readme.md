@@ -182,7 +182,7 @@ demo-57fd987b7b-8ks2w   1/1     Running   0          59s
 1. Apply the service to your Kubernetes cluster
 
 ```shell
-kubectl apply -f service.yaml
+kubectl apply -f service.yml
 ```
 
 Result:
@@ -218,7 +218,22 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
-3. Open application with LoadBalancer
+3. Start tunnel
+
+```shell
+minikube tunnel
+```
+
+```text
+✅  Tunnel erfolgreich gestartet
+
+📌  ACHTUNG: Schließen Sie dieses Terminal nicht. Der Prozess muss am Laufen bleiben, damit die Tunnels zugreifbar sind ...
+
+❗  Access to ports below 1024 may fail on Windows with OpenSSH clients older than v8.1. For more information, see: https://minikube.sigs.k8s.io/docs/handbook/accessing/#access-to-ports-1024-on-windows-requires-root-permission
+🏃  Start Tunnel für den Service demo
+```
+
+4. Open application with LoadBalancer
 
 Balancer Ingress: 127.0.0.1
 
@@ -282,7 +297,7 @@ spec:
 4. Apply the modified deployment
 
 ```shell	
-kubectl apply -f deployment.ml
+kubectl apply -f deployment.yml
 ```
 
 5. Check resources in demo-environment
